@@ -6,6 +6,7 @@ public class UnoConsoleApp2 {
 	public static void main(String[] args) {
 		ArrayList<UnoCard> playerone = new ArrayList<UnoCard>();
 		ArrayList<UnoCard> playertwo = new ArrayList<UnoCard>();
+		ArrayList<UnoCard> playerthree = new ArrayList<UnoCard>();
 		Scanner input;
 		int cardIndex;
 		int winner = 0;
@@ -15,10 +16,12 @@ public class UnoConsoleApp2 {
 		initializeGame: while (true) {
 			playerone.clear();
 			playertwo.clear();
+			playerthree.clear();
 			drawpileCard = new UnoCard();
 			currentColor = drawpileCard.color;
 			draw(7, playerone);
 			draw(7, playertwo);
+			draw(7, playerthree);
 			System.out.println("The current card is: " + drawpileCard.getCard());
 
 			for (boolean playerOnesTurn = true; winner == 0;) {
