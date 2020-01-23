@@ -27,11 +27,6 @@ public class UnoConsoleApp2 {
 			draw(7, playerfour);
 			System.out.println("The current card is: " + drawpileCard.getCard());
 
-//			for (int currentplayer = 1; winner == 0;) {
-//				cardIndex = 0;
-
-			// player one's turn
-
 			for (int currentplayer = 1; winner == 0;) {
 				cardIndex = 0;
 
@@ -59,7 +54,7 @@ public class UnoConsoleApp2 {
 					// Must do as part of each turn because topCard can stay the same through a
 					// round
 					if (drawpileCard.value >= 10) {
-					currentplayer = 2;
+						currentplayer = 2;
 
 						switch (drawpileCard.value) {
 						case 12: // Draw 2
@@ -115,12 +110,12 @@ public class UnoConsoleApp2 {
 							// Must do as part of each turn because topCard can stay the same through a
 							// round
 							if (drawpileCard.value >= 10) {
-//									playerOnesTurn = true; // Skipping turn
+								currentplayer = 3;
 
 								switch (drawpileCard.value) {
 								case 12: // Draw 2
 									System.out.println("Drawing 2 cards for you...");
-									draw(2, playerone);
+									draw(2, playertwo);
 									break;
 
 								case 13:
@@ -134,11 +129,13 @@ public class UnoConsoleApp2 {
 									if (drawpileCard.value == 14) // Wild draw 4
 									{
 										System.out.println("Drawing 4 cards for you...");
-										draw(4, playerone);
+										draw(4, playertwo);
 									}
 
 								}
 							}
+
+							// PLAYER THREE
 
 							for (currentplayer = 3; winner == 0;) {
 								cardIndex = 0;
@@ -147,7 +144,7 @@ public class UnoConsoleApp2 {
 									System.out.println("Player THREE Has" + " " + String.valueOf(playerthree.size())
 											+ " cards left!" + ((playerthree.size() == 1) ? "...Uno!" : ""));
 									// Finding a card to place
-									for (cardIndex = 0; cardIndex < playertwo.size(); cardIndex++) {
+									for (cardIndex = 0; cardIndex < playerthree.size(); cardIndex++) {
 										if (((UnoCard) playerthree.get(cardIndex)).canPlace(drawpileCard, currentColor)) // Searching
 																															// for
 																															// playable
@@ -169,12 +166,12 @@ public class UnoConsoleApp2 {
 										// Must do as part of each turn because topCard can stay the same through a
 										// round
 										if (drawpileCard.value >= 10) {
-//											playerOnesTurn = true; // Skipping turn
+											currentplayer = 4;
 
 											switch (drawpileCard.value) {
 											case 12: // Draw 2
 												System.out.println("Drawing 2 cards for you...");
-												draw(2, playerone);
+												draw(2, playerthree);
 												break;
 
 											case 13:
@@ -188,22 +185,24 @@ public class UnoConsoleApp2 {
 												if (drawpileCard.value == 14) // Wild draw 4
 												{
 													System.out.println("Drawing 4 cards for you...");
-													draw(4, playerone);
+													draw(4, playerthree);
 												}
 
 											}
 										}
+
+										// PLAYER FOUR
 
 										for (currentplayer = 4; winner == 0;) {
 											cardIndex = 0;
 
 											{
 												System.out.println("Player FOUR Has" + " "
-														+ String.valueOf(playerthree.size()) + " cards left!"
-														+ ((playerthree.size() == 1) ? "...Uno!" : ""));
+														+ String.valueOf(playerfour.size()) + " cards left!"
+														+ ((playerfour.size() == 1) ? "...Uno!" : ""));
 												// Finding a card to place
-												for (cardIndex = 0; cardIndex < playertwo.size(); cardIndex++) {
-													if (((UnoCard) playerthree.get(cardIndex)).canPlace(drawpileCard,
+												for (cardIndex = 0; cardIndex < playerfour.size(); cardIndex++) {
+													if (((UnoCard) playerfour.get(cardIndex)).canPlace(drawpileCard,
 															currentColor)) // Searching
 																			// for
 																			// playable
@@ -211,12 +210,12 @@ public class UnoConsoleApp2 {
 														break;
 												}
 
-												if (cardIndex == playerthree.size()) {
+												if (cardIndex == playerfour.size()) {
 													System.out.println("I've got nothing! Drawing cards...");
-													draw(1, playerthree);
+													draw(1, playerfour);
 												} else {
-													drawpileCard = (UnoCard) playerthree.get(cardIndex);
-													playerthree.remove(cardIndex);
+													drawpileCard = (UnoCard) playerfour.get(cardIndex);
+													playerfour.remove(cardIndex);
 													currentColor = drawpileCard.color;
 													System.out.println(
 															"Player FOUR Chooses" + drawpileCard.getCard() + "!");
@@ -227,12 +226,12 @@ public class UnoConsoleApp2 {
 													// through a
 													// round
 													if (drawpileCard.value >= 10) {
-//													playerOnesTurn = true; // Skipping turn
+														currentplayer = 1;
 
 														switch (drawpileCard.value) {
 														case 12: // Draw 2
 															System.out.println("Drawing 2 cards for you...");
-															draw(2, playerone);
+															draw(2, playerfour);
 															break;
 
 														case 13:
@@ -246,7 +245,7 @@ public class UnoConsoleApp2 {
 															if (drawpileCard.value == 14) // Wild draw 4
 															{
 																System.out.println("Drawing 4 cards for you...");
-																draw(4, playerone);
+																draw(4, playerfour);
 															}
 
 														}
@@ -264,16 +263,13 @@ public class UnoConsoleApp2 {
 					}
 				}
 			}
+
+			if (winner == 1)
+				System.out.println("playerwins");
+			else
+				System.out.println("player two wins");
+
 		}
-	}
-
-	{
-		int winner = 0;
-		if (winner == 1)
-			System.out.println("playerwins");
-		else
-			System.out.println("player two wins");
-
 	}
 
 	public static void draw(int cards, ArrayList<UnoCard> deck) {
