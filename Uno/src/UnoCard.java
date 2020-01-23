@@ -13,8 +13,8 @@ public class UnoCard {
 
 	public UnoCard() {
 		rand = new Random();
-		value = rand.nextInt(28); // 108 cards in a standard Uno deck. Can be reduced to 27 (disregarding colors)
-		// Assigning value
+		value = rand.nextInt(28); 
+		
 		if (value >= 14)
 			value -= 14;
 
@@ -33,7 +33,7 @@ public class UnoCard {
 			color = "Yellow";
 			break;
 		}
-		// If the card is a wild card
+
 		if (value >= 13)
 			color = "none";
 	}
@@ -62,7 +62,7 @@ public class UnoCard {
 			face += "Wild";
 			break;
 		case 14:
-			face += "Wild Draw 4";
+			face += "Draw 4";
 			break;
 		}
 		face += "]";
@@ -74,7 +74,7 @@ public class UnoCard {
 			return true;
 		else if (this.value == o.value)
 			return true;
-		else if (this.color == "none") // for wild cards
+		else if (this.color == "none")
 			return true;
 		return false;
 	}
