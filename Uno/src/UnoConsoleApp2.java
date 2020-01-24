@@ -48,7 +48,7 @@ public class UnoConsoleApp2 {
 					}
 
 					if (cardIndex == playerone.size()) {
-						System.out.println("I've got nothing! Drawing cards...");
+						System.out.println("I've got nothing!");
 						draw(1, playerone);
 					} else {
 						drawpileCard = (UnoCard) playerone.get(cardIndex);
@@ -65,7 +65,7 @@ public class UnoConsoleApp2 {
 
 							switch (drawpileCard.value) {
 							case 12: // Draw 2
-								System.out.println("Drawing 2 cards for you...");
+								System.out.println("Drawing 2 cards");
 								draw(2, playerone);
 								break;
 
@@ -76,10 +76,10 @@ public class UnoConsoleApp2 {
 									currentColor = new UnoCard().color;
 								} while (currentColor == "none");
 
-								System.out.println("New color is " + currentColor);
+								System.out.println("The new color is " + currentColor);
 								if (drawpileCard.value == 14) // Wild draw 4
 								{
-									System.out.println("Drawing 4 cards for you...");
+									System.out.println("Drawing 4 cards");
 									draw(4, playerone);
 								}
 							}
@@ -102,7 +102,7 @@ public class UnoConsoleApp2 {
 							}
 
 							if (cardIndex == playertwo.size()) {
-								System.out.println("I've got nothing! Drawing cards...");
+								System.out.println("I've got nothing!");
 								draw(1, playertwo);
 							} else {
 								drawpileCard = (UnoCard) playertwo.get(cardIndex);
@@ -119,7 +119,7 @@ public class UnoConsoleApp2 {
 
 									switch (drawpileCard.value) {
 									case 12: // Draw 2
-										System.out.println("Drawing 2 cards for you...");
+										System.out.println("Drawing 2 cards");
 										draw(2, playertwo);
 										break;
 
@@ -130,10 +130,10 @@ public class UnoConsoleApp2 {
 											currentColor = new UnoCard().color;
 										} while (currentColor == "none");
 
-										System.out.println("New color is " + currentColor);
+										System.out.println("The new color is " + currentColor);
 										if (drawpileCard.value == 14) // Wild draw 4
 										{
-											System.out.println("Drawing 4 cards for you...");
+											System.out.println("Drawing 4 cards");
 											draw(4, playertwo);
 										}
 
@@ -155,7 +155,7 @@ public class UnoConsoleApp2 {
 									}
 
 									if (cardIndex == playerthree.size()) {
-										System.out.println("I've got nothing! Drawing cards...");
+										System.out.println("I've got nothing!");
 										draw(1, playerthree);
 									} else {
 										drawpileCard = (UnoCard) playerthree.get(cardIndex);
@@ -172,7 +172,7 @@ public class UnoConsoleApp2 {
 
 											switch (drawpileCard.value) {
 											case 12: // Draw 2
-												System.out.println("Drawing 2 cards for you...");
+												System.out.println("Drawing 2 cards");
 												draw(2, playerthree);
 												break;
 
@@ -183,10 +183,10 @@ public class UnoConsoleApp2 {
 													currentColor = new UnoCard().color;
 												} while (currentColor == "none");
 
-												System.out.println("New color is " + currentColor);
+												System.out.println("The new color is " + currentColor);
 												if (drawpileCard.value == 14) // Wild draw 4
 												{
-													System.out.println("Drawing 4 cards for you...");
+													System.out.println("Drawing 4 cards");
 													draw(4, playerthree);
 												}
 
@@ -209,7 +209,7 @@ public class UnoConsoleApp2 {
 											}
 
 											if (cardIndex == playerfour.size()) {
-												System.out.println("I've got nothing! Drawing cards...");
+												System.out.println("I've got nothing!");
 												draw(1, playerfour);
 											} else {
 												drawpileCard = (UnoCard) playerfour.get(cardIndex);
@@ -217,19 +217,16 @@ public class UnoConsoleApp2 {
 												currentColor = drawpileCard.color;
 												System.out
 														.println("Player Four Chooses" + drawpileCard.getCard() + "!");
-												System.out.println("You're Up Again Player One!");
 												currentuser = 1;
 
 												// Must do as part of each turn because topCard can stay the same
 												// through a
 												// round
-
 												if (drawpileCard.value >= 10) {
-													currentuser = 1; // Skipping turn
 
 													switch (drawpileCard.value) {
 													case 12: // Draw 2
-														System.out.println("Drawing 2 cards for you...");
+														System.out.println("Drawing 2 cards");
 														draw(2, playerfour);
 														break;
 
@@ -243,7 +240,7 @@ public class UnoConsoleApp2 {
 														System.out.println("New color is " + currentColor);
 														if (drawpileCard.value == 14) // Wild draw 4
 														{
-															System.out.println("Drawing 4 cards for you...");
+															System.out.println("Drawing 4 cards");
 															draw(4, playerfour);
 														}
 													}
